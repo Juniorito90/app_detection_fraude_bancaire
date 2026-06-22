@@ -11,7 +11,7 @@ comparés en direct sur le même flux.
 
 ```bash
 # 1. Se placer dans le dossier du projet
-cd fraud_streamlit
+cd app_detection_fraude_bancaire
 
 # 2. Créer un environnement virtuel
 python3 -m venv venv
@@ -31,7 +31,7 @@ Le navigateur s'ouvre automatiquement sur http://localhost:8501
 ## Structure du projet
 
 ```
-fraud_streamlit/
+app_detection_fraude_bancaire/
 ├── app.py               # Interface Streamlit + logique de flux temps réel
 ├── data_simulator.py    # Génération des transactions simulées (FCFA)
 ├── fraud_detector.py    # Prétraitement + Isolation Forest + DBSCAN
