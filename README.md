@@ -13,14 +13,10 @@ comparés en direct sur le même flux.
 # 1. Se placer dans le dossier du projet
 cd app_detection_fraude_bancaire
 
-# 2. Créer un environnement virtuel
-python3 -m venv venv
-source venv/bin/activate        # Windows : venv\Scripts\activate
-
-# 3. Installer les dépendances
+# 2. Installer les dépendances
 pip install -r requirements.txt
 
-# 4. Lancer l'application
+# 3. Lancer l'application
 streamlit run app.py
 ```
 
@@ -33,43 +29,20 @@ Le navigateur s'ouvre automatiquement sur http://localhost:8501
 ```
 app_detection_fraude_bancaire/
 ├── app.py               # Interface Streamlit + logique de flux temps réel
-├── data_simulator.py    # Génération des transactions simulées (FCFA)
-├── fraud_detector.py    # Prétraitement + Isolation Forest + DBSCAN
-├── requirements.txt
+├── simulateur.py    # Génération des transactions simulées (FCFA)
+├── detecteur.py    # Prétraitement + Isolation Forest + DBSCAN
+├── requirements.txt # Bibliotheques a installer
 └── README.md
 ```
 
 ---
 
-## Fonctionnalités
+## Consignes respectées (Sujet 37)
 
-- Flux automatique de transactions bancaires simulées (toutes les 1,5 s)
-- Détection en parallèle par Isolation Forest et DBSCAN
-- Curseur de sensibilité ajustable en direct (sidebar)
-- Boutons Pause / Reprendre / Réinitialiser
-- Graphique d'évolution temporelle des détections
-- Scatter plot Montant vs Distance (fenêtre active, coloré par statut)
-- Gauge de taux de suspicion global
-- Camembert de répartition des alertes
-- File des 6 dernières alertes en temps réel
-- Registre coloré des 25 dernières transactions
-
----
-
-## Algorithmes
-
-### Isolation Forest
-Isole les points atypiques en construisant des arbres de décision aléatoires.
-Un point anormal est "facile à isoler" (chemin court). Score d'anomalie :
-`s(x, n) = 2^(-E(h(x)) / c(n))`
-
-### DBSCAN
-Classe les points selon leur densité locale. Les points hors de toute
-région dense (label = -1) sont considérés comme du bruit → alerte fraude.
-
-### Curseur de sensibilité (1–100)
-- Isolation Forest : contamination de 2 % à 35 %
-- DBSCAN : epsilon de 2,2 à 0,35 (relation inverse)
+✅ Interface simulant un flux de transactions entrantes  
+✅ Isolation Forest + DBSCAN pour signaler les suspectes  
+✅ Tableau de bord avec alertes en temps réel et taux de suspicion  
+✅ Curseur pour ajuster la sensibilité de détection  
 
 ---
 
