@@ -1,5 +1,4 @@
 # Application de détection de fraude bancaire en temps réel
-**Sujet 37 — Swiss UMEF University Dakar — Mr BEBY**
 
 ---
 
